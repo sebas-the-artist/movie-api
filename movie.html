@@ -5,33 +5,87 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>movies</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="movie.js" defer></script>
+    <script src="https://kit.fontawesome.com/d7b20240a7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="film__search">
-        <a href="/index.html">
-            <button>← Back</button>
-        </a>
-        <div class="film__search--container">
-            <label class="film__search--label">
-                Search by Id
-            </label>
-            <input type="number" placeholder="1" onchange="onSearchChange(event)">
-        </div>
-    </div>
-    <div class="film-list">
-        <div class="film">
-            <div class="film__title">
-                Film Title
+
+
+    <nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="nav__wrapper">
+
+                    <div class="nav__logo--wrapper">
+                        <img src="assets/blockbuster.png" class="nav__logo" alt="">
+                    </div>
+
+                    <div class="nav__links--wrapper">
+                        <a href="index.html" class="nav__link">Home</a>
+                        <a href="#" class="nav__link">Movies</a>
+                        <a href="#" class="nav__link">Explore</a>
+                    </div>
+
+                </div>
             </div>
-            <p class="film__body">
-                Film Body
-            </p>
         </div>
-    </div>
+
+    </nav>
+
+
+    <section id="landing__page">
+
+        <h1 class="landing__header">BROWSE OUR SHIT</h1>
+
+        <div class="landing__search--bar--wrapper">
+            <input type="text" class="landing__search--bar" placeholder="eat a dick, pussy">
+            <button class="landing__search--btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+
+
+    </section>
+
+
+    <section id="movie__section">
+
+
+        <div class="filter__wrapper">
+            <h4 class="filter__header">FILTER:</h4>
+
+            <select id="filter" onchange="filterMovies(event)">
+                <option value="" disabled selected>SORT</option>
+                <option value="LOW_TO_HIGH">Date, Old to New</option>
+                <option value="HIGH_TO_LOW">Date, New to Old</option>
+                <option value="RATING">Rating</option>
+            </select>
+
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="movie__list">
+                    <div class="movie">
+                        <div class="movie__card">
+                            <div class="movie__card--container">
+                                <h3>Movie Name</h4>
+                                    <p><b>Release Date:</b> 1999 </p>
+                                    <p><b>Type:</b> movie</p>
+                                    <p><b>Poster:</b> <a href="https://web.com" target="_blank">Poster</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
 </body>
-<script src="movie.js"></script>
 
 </html>

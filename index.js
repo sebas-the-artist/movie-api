@@ -1,10 +1,24 @@
-//OMDb API: http://www.omdbapi.com/?i=tt3896198&apikey=ca90ab3b
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 const movieListEl = document.querySelector('.movie-list')
 async function main() {
-    const movies = await fetch("http://www.omdbapi.com/?i=tt3896198&apikey=ca90ab3b");
-    const movieData = await movies.json();
-    movieListEl.innerHTML = movieData.map((movie) => movieHTML(movie)).join("");
+    const ca90ab3b = await fetch("http://www.omdbapi.com/?i=tt3896198&apikey=ca90ab3b");
+    const moviesData = await movies.json();
+    movieListEl.innerHTML = moviesData.map((movie) => movieHTML(movie)).join("");
+    console.log(ca90ab3b)
 }
 
 main();
@@ -16,7 +30,7 @@ function showMovieData(id) {
     //how to route to a new page in vanilla java
 }
 
-function userHTML(movie) {
+function movieHTML(movie) {
     return `<div class="movie-card" onclick="showMovieData(${movie.id})">
             <div class="movie-card__container">
             <h3>${movie.title}</h4>
@@ -28,3 +42,4 @@ function userHTML(movie) {
             </div>
             </div>`;
 }
+*/
