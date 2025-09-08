@@ -73,27 +73,30 @@
 
         <div class="nav">
 
-
             <div class="container">
                 <div class="row">
+
                     <div class="nav__wrapper">
 
                         <div class="nav__logo--wrapper">
                             <img src="assets/blockbuster.png" class="nav__logo" alt="">
                         </div>
-
-                        <div class="nav__links--wrapper">
+                        <button id="navToggle" class="nav__toggle" aria-label="Menu">&#9776;</button>
+                        <div class="nav__links--wrapper" id="navLinks">
+                            <button id="navClose" class="nav__close" aria-label="Close Menu">&times;</button>
                             <a href="#" class="nav__link">Home</a>
                             <a href="movie.html" class="nav__link">Movies</a>
                             <a href="movie.html" class="nav__link">Explore</a>
                         </div>
-
                     </div>
+
                 </div>
             </div>
 
-
         </div>
+
+
+
 
         <section id="intro__landing">
 
@@ -104,7 +107,8 @@
 
             <div class="intro__landing__search--bar--wrapper">
                 <input type="text" class="intro__landing__search--bar" placeholder="eat a dick, pussy">
-                <button class="intro__landing__search--btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <a href="movie.html" class="intro__landing__search--btn"><i
+                        class="fa-solid fa-magnifying-glass"></i></a>
             </div>
 
 
