@@ -38,6 +38,15 @@ nav,
   }
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(36000deg);
+  }
+}
+
 /* intro page */
 
 #intro__page {
@@ -122,7 +131,7 @@ nav,
   justify-content: center;
 }
 
-/* ticket leaves */
+/* cd  leaves */
 
 @-webkit-keyframes snowflakes-fall {
   0% {
@@ -295,6 +304,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  max-width: 1100px;
 }
 
 .nav__logo {
@@ -304,6 +315,10 @@ nav {
 }
 .nav__logo:hover {
   cursor: url("assets/middle.cur"), auto;
+}
+.nav__logo--movie {
+  width: 20%;
+  margin-top: 5px;
 }
 
 /*.nav__link--wrapper {
@@ -326,7 +341,7 @@ nav {
 }
 .nav__link:hover {
   color: #ffa639;
-  -webkit-text-stroke: 0.7px blue;
+  -webkit-text-stroke: 0.7px black;
 }
 
 .nav__links--wrapper {
@@ -380,13 +395,14 @@ nav {
   align-items: center;
 
   padding: 30px 0 40px 0;
+  padding: 16px 0 24px 0;
 }
 
 .landing__header {
-  padding-bottom: 30px;
+  padding-bottom: 12px;
 
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: 32px;
+  font-size: 28px;
   color: #ffa639;
   -webkit-text-stroke: 0.7px blue;
 }
@@ -407,7 +423,7 @@ nav {
   color: rgba(0, 0, 0, 0.87);
   width: 100%;
   max-width: 800px;
-  height: 60px;
+  height: 48px;
   font-size: 20px;
   padding-left: 20px;
   border: 3px solid #3146e6;
@@ -428,13 +444,21 @@ nav {
   border-radius: 50px;
   border: none;
 }
+.fa-compact-disc {
+}
+.fa-compact-disc:hover {
+  animation: spin 3s linear alternate-reverse infinite;
+}
 /* filter */
 
 .filter__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 24px 12px 24px;
+  padding: 28px 24px 0px 24px;
+  margin: 0 auto;
+
+  max-width: 1000px;
 }
 .filter__header {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
@@ -459,12 +483,14 @@ nav {
   outline-style: solid;
   outline-color: #3146e6;
   outline-width: 1.5px;
+  z-index: 7;
 }
 
 /* all them damn movies */
+
 .movie__list {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
@@ -472,7 +498,7 @@ nav {
 
   text-align: center;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 }
 .movie__card {
   background-color: #cacaca;
@@ -492,10 +518,13 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 .movie__card:hover {
   animation: pulse 4s ease-in-out infinite alternate-reverse;
+  border: visible;
 }
+
 .movie__card:nth-child(odd) {
   border: 3px solid #ffa639;
   border: 3px solid transparent;
@@ -643,8 +672,20 @@ nav {
   }
 }
 
+@media (max-width: 992px) {
+}
+
+@media (max-width: 768px) {
+  .intro__header {
+    font-size: 32px;
+  }
+}
+
 @media (max-width: 576px) {
   .sorry__para {
     font-size: 16px;
+  }
+  .intro__header {
+    font-size: 20px;
   }
 }
