@@ -315,7 +315,10 @@ function displayMovies(movies) {
     'sponsor',
     "the couple's sponsor",
     'married woman travel moist disturbed shellfish',
-    'molester train: agony! secret dream teasing'
+    'molester train: agony! secret dream teasing',
+    'Purpose of Cohabitation',
+    'Pornocracy: The New Sex Multinationals',
+    
 
     ];
   const bannedIds = [876897]; // TMDb movie IDs to exclude
@@ -338,9 +341,9 @@ function displayMovies(movies) {
         <div class="movie__card--container">
           <img src="${imgSrc}" class="${posterClass}" alt="${movie.title || movie.original_title} poster" />
           <div class="movie-card-info">
-            <h3>${movie.title || movie.original_title}</h3>
-            <p><b>Release Date:</b> ${movie.release_date}</p>
-            <p><b>Rating:</b> ${movie.vote_average}</p>
+          <h3>${movie.title || movie.original_title}</h3>
+          <p><b>Rating:</b> <span class="movie-rating-stars">${getStarIcons(movie.vote_average)}</span></p>
+          <p><b>Release Date:</b> ${movie.release_date}</p>
           </div>
           <div class="overview-overlay">
             <p>${movie.overview || "No description available."}</p>
@@ -349,6 +352,7 @@ function displayMovies(movies) {
       </div>
     `;
   }).join("");
+  movieListEl.style.display = 'flex'; // or 'block' depending on your layout
 }
 
 
@@ -455,6 +459,75 @@ fetchAndDisplayCategory();
 
 
 
+
+
+function getStarIcons(rating) {
+  // Convert 0–10 rating into 0–5 stars:
+  const numStars = Math.floor(rating / 2);
+  const halfStar = (rating / 2) % 1 >= 0.5;
+  let stars = '';
+
+  // Add full stars
+  for(let i=0; i<numStars; i++) {
+    stars += '<i class="fa-solid fa-star"></i>';
+  }
+  // Add half star if needed
+  if (halfStar) {
+    stars += '<i class="fa-solid fa-star-half-stroke"></i>';
+  }
+  // Add empty stars
+  const totalStars = halfStar ? numStars + 1 : numStars;
+  for(let i=totalStars; i<5; i++) {
+    stars += '<i class="fa-regular fa-star"></i>';
+  }
+  return stars;
+}
+
+
+function showLoading() {
+  movieListEl.innerHTML = '<img src="assets/disk.png" style="width: 32px;"  class="loading-icon"/>';
+  movieListEl.style.display = 'flex';
+  movieListEl.style.justifyContent = 'center';
+  movieListEl.style.alignItems = 'center';
+  movieListEl.style.paddingBottom = '20%';
+  movieListEl.style.minHeight = '300px'; // to keep space consistent
+}
+
+/*
+document.addEventListener('DOMContentLoaded', () => {
+  showLoading();  // show spinner immediately
+
+  setTimeout(() => {
+    fetchAndDisplayCategory();
+  }, 7000);
+});
+*/
+document.addEventListener('DOMContentLoaded', async () => {
+  showLoading();
+
+  const loadStart = Date.now();
+  const minLoadDuration = 5000; // 5 seconds
+
+  // Fetch movies
+  const movies = await fetchMultiplePages("top_rated", 15);
+
+  const loadEnd = Date.now();
+  const elapsed = loadEnd - loadStart;
+
+  const remainingDelay = minLoadDuration - elapsed;
+
+  if (remainingDelay > 0) {
+    // Wait the remaining time before showing movies
+    setTimeout(() => {
+      displayMovies(movies);
+      errorMessageEl.style.display = 'none';
+    }, remainingDelay);
+  } else {
+    // Fetch took longer than 5 seconds, show movies immediately
+    displayMovies(movies);
+    errorMessageEl.style.display = 'none';
+  }
+});
 
 
 
