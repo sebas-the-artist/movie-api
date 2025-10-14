@@ -806,7 +806,7 @@ nav {
 @media (max-width: 390px) {
   .intro__header {
     font-size: 28px;
-    max-width: 85%;
+    max-width: 84%;
   }
 }
 
