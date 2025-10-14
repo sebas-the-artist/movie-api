@@ -14,6 +14,30 @@ navClose.addEventListener('click', () => {
 
 
 
+const input = document.getElementById('searchInput');
+  const button = document.getElementById('searchBtn');
+
+  // Save input to localStorage and navigate to movie.html
+  function saveAndRedirect() {
+    localStorage.setItem('searchQuery', input.value);
+    window.location.href = 'movie.html';
+  }
+
+  button.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default anchor action
+    saveAndRedirect();
+  });
+
+  input.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      saveAndRedirect();
+    }
+  });
+
+
+
+
 
 
 

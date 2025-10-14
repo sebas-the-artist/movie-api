@@ -11,29 +11,65 @@
 <body>
     <section id="sorry">
 
-        <a href="movie.html" class="nav__link">back to the show</a>
 
-        <h3 class="sorry__para">I am so sorry that there's "adult content" that slipped through the cracks. The api i
-            used doesnt mark them as adult films, Even though their mamaries are almost completely visible in some
-            cases. I genuinely tried to filter them out. But i had to do it manually, Due to the api not seperating
-            those from the rest of the movies.
-            <br>
-            <br>
-            I'm not even lying i spent HOURS looking up anything remotely sexual and adding those titles to the
-            "bannedTitles" const in the "displayMovies" function, Preventing them from showing up. For some reason i
-            thought that was easier than finding a whole new API and restarting all my JS.
-            <br>
-            <br>
-            I swear i'm not a weirdo, I just wanted to make a website that will show you any movie imaginable. Some
-            "mature" content just so happened to slip through the cracks.
-        </h3>
+        <div class="nav sorry__nav">
 
-        <h1 class="sorry__para">a boob or 2 wont kill you</h1>
+            <div class="container">
+                <div class="row">
 
-        <h1 class="sorry__para sorry__para--final"> Blockbuster had an adult section, so lets just pretend this is part
-            of the aesthetic.
-        </h1>
+                    <div class="nav__wrapper">
 
+                        <div class="nav__logo--wrapper">
+                            <img src="assets/blockbuster.png" class="nav__logo" alt="">
+                        </div>
+                        <button id="navToggle" class="nav__toggle" aria-label="Menu">&#9776;</button>
+                        <div class="nav__links--wrapper" id="navLinks">
+                            <button id="navClose" class="nav__close" aria-label="Close Menu">&times;</button>
+                            <a href="/" class="nav__link">Home</a>
+                            <a href="movie.html" class="nav__link">Movies</a>
+                            <a href="movie.html" class="nav__link">Explore</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- <a href="movie.html" class="nav__link sorry__link">back to the show</a> -->
+        <div class="sorry__wrapper">
+
+            <h3 class="sorry__para">
+
+                I apologize for any adult content that may have appeared. The API used does not reliably flag adult
+                films,
+                so I manually filtered as much as possible by banning certain titles. Despite spending far too long
+                refining
+                this, some mature content may have slipped through. Thank you for your understanding.
+                <!-- I am so sorry that there's "adult content" that slipped through the cracks. The api i
+                used doesnt mark them as adult films, Even though their mamaries are almost completely visible in some
+                cases. I genuinely tried to filter them out. But i had to do it manually, Due to the api not seperating
+                those from the rest of the movies. -->
+                <!-- I'm not even lying i spent HOURS looking up anything remotely sexual and adding those titles to the
+                "bannedTitles" const in the "displayMovies" function, Preventing them from showing up. For some reason i
+                thought that was easier than finding a whole new API and restarting all my JS. -->
+                <br>
+                <br>
+                I swear i'm not a weirdo, I just wanted to make a website that will show you any movie imaginable. Some
+                "mature" content just so happened to get past them. I think its a language thing, because its mostly
+                stuff from Asia. I'm not even lying i spent HOURS looking up anything remotely sexual and adding those
+                titles to the "bannedTitles" const in the "displayMovies" function, Preventing them from showing up. For
+                some reason i thought that was easier than finding a whole new API and restarting.
+            </h3>
+
+            <h1 class="sorry__para">a boob or 2 wont kill you</h1>
+
+            <h1 class="sorry__para sorry__para--final">Many video stores had an adult section, so lets just pretend this
+                is
+                part
+                of the aesthetic.
+            </h1>
+
+        </div>
     </section>
 </body>
 

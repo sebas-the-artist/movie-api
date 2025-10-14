@@ -143,7 +143,7 @@ function displayMovies(movies) {
     'pawg pleasures collection','borders of love','bosomy tae-hee','little daughters','youthful older sister',
     "lee chaedam's g-spot",'spong','spong part 2','sponsor',"the couple's sponsor",
     'married woman travel moist disturbed shellfish','molester train: agony! secret dream teasing',
-    'purpose of cohabitation','pornocracy: the new sex multinationals',
+    'purpose of cohabitation','pornocracy: the new sex multinationals', 'the porno killers', 'oh! takarazuka'
     
 
     ];
@@ -395,6 +395,32 @@ document.addEventListener('DOMContentLoaded', async () => {
     errorMessageEl.style.display = 'none';
   }
 });
+
+
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('movieSearchInput');
+  const savedSearch = localStorage.getItem('searchQuery');
+
+  if (savedSearch) {
+    input.value = savedSearch;
+
+    // Trigger the input event or call the search function to show matching results
+    const event = new Event('input', { bubbles: true });
+    input.dispatchEvent(event);
+
+    localStorage.removeItem('searchQuery'); // Optional: clear after loading
+  }
+});
+/* window.addEventListener('DOMContentLoaded', () => {
+    const savedSearch = localStorage.getItem('searchQuery');
+    if (savedSearch) {
+      document.getElementById('movieSearchInput').value = savedSearch;
+      localStorage.removeItem('searchQuery'); // Optional: clear after loading
+    }
+  }); */
 
 
 
