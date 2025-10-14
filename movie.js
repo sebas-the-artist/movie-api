@@ -274,7 +274,6 @@ searchInput.addEventListener('input', () => {
   searchMovies(searchInput.value.trim());
 });
 
-// Filtering function for sorting
 function filterMovies(event) {
   const filter = event.target.value;
   const movies = Array.from(movieListEl.querySelectorAll('.movie__card'));
@@ -297,10 +296,8 @@ function filterMovies(event) {
   moviesData.forEach(({ movie }) => movieListEl.appendChild(movie));
 }
 
-// Attach event listener to filter select
 document.getElementById('filter').addEventListener('change', filterMovies);
 
-// Nav toggle code
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
 const navClose = document.getElementById('navClose');
@@ -308,7 +305,6 @@ const navClose = document.getElementById('navClose');
 navToggle.addEventListener('click', () => navLinks.classList.add('show'));
 navClose.addEventListener('click', () => navLinks.classList.remove('show'));
 
-// Initialize default movie list on page load
 fetchAndDisplayCategory();
 
 
@@ -327,15 +323,12 @@ function getStarIcons(rating) {
   const halfStar = (rating / 2) % 1 >= 0.5;
   let stars = '';
 
-  // Add full stars
   for(let i=0; i<numStars; i++) {
     stars += '<i class="fa-solid fa-star"></i>';
   }
-  // Add half star if needed
   if (halfStar) {
     stars += '<i class="fa-solid fa-star-half-stroke"></i>';
   }
-  // Add empty stars
   const totalStars = halfStar ? numStars + 1 : numStars;
   for(let i=totalStars; i<5; i++) {
     stars += '<i class="fa-regular fa-star"></i>';
@@ -375,7 +368,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const loadStart = Date.now();
   const minLoadDuration = 5000; // 5 seconds
 
-  // Fetch movies
   const movies = await fetchMultiplePages("top_rated", 15);
 
   const loadEnd = Date.now();
@@ -440,8 +432,6 @@ searchInput.addEventListener('input', () => {
   const query = searchInput.value.trim();
 
   if(query === '') {
-    // Optionally clear results or show default
-    // But avoid calling fetchAndDisplayCategory on every backspace during typing
     movieListEl.innerHTML = '';
     errorMessageEl.style.display = 'none';
     return;
