@@ -384,18 +384,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   const remainingDelay = minLoadDuration - elapsed;
 
   if (remainingDelay > 0) {
-    // Wait the remaining time before showing movies
     setTimeout(() => {
       displayMovies(movies);
       errorMessageEl.style.display = 'none';
     }, remainingDelay);
   } else {
-    // Fetch took longer than 5 seconds, show movies immediately
     displayMovies(movies);
     errorMessageEl.style.display = 'none';
   }
 });
-
 
 
 
@@ -406,14 +403,28 @@ window.addEventListener('DOMContentLoaded', () => {
 
   if (savedSearch) {
     input.value = savedSearch;
+    input.focus();
 
-    // Trigger the input event or call the search function to show matching results
+    setTimeout(() => {
+      searchMovies(savedSearch); 
+    }, 100);
+
+    localStorage.removeItem('searchQuery'); // Optional cleanup
+  }
+});
+/* window.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('movieSearchInput');
+  const savedSearch = localStorage.getItem('searchQuery');
+
+  if (savedSearch) {
+    input.value = savedSearch;
+
     const event = new Event('input', { bubbles: true });
     input.dispatchEvent(event);
 
     localStorage.removeItem('searchQuery'); // Optional: clear after loading
   }
-});
+}); */
 /* window.addEventListener('DOMContentLoaded', () => {
     const savedSearch = localStorage.getItem('searchQuery');
     if (savedSearch) {
@@ -422,6 +433,24 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }); */
 
+
+  let debounceTimer;
+searchInput.addEventListener('input', () => {
+  clearTimeout(debounceTimer);
+  const query = searchInput.value.trim();
+
+  if(query === '') {
+    // Optionally clear results or show default
+    // But avoid calling fetchAndDisplayCategory on every backspace during typing
+    movieListEl.innerHTML = '';
+    errorMessageEl.style.display = 'none';
+    return;
+  }
+
+  debounceTimer = setTimeout(() => {
+    searchMovies(query);
+  }, 300);
+});
 
 
 
