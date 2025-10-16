@@ -439,7 +439,7 @@ searchInput.addEventListener('input', () => {
 
   debounceTimer = setTimeout(() => {
     searchMovies(query);
-  }, 800);
+  }, 8000);
 });
 
 
